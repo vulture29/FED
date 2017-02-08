@@ -22,7 +22,7 @@ app.get('/times', function(request, response) {
     var result = '';
     var tiems = process.env.TIMES || 5;
     for(i = 0; i < tiems; i++)
-        result += i + ' ;
+        result += i + ' ';
     response.send(result);
 });
 
