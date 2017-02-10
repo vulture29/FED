@@ -603,11 +603,11 @@ a:hover {
 }
 .copyright a {
   text-decoration: underline;
-  color: #ffa6c9;
+  color: #ff6699;
 }
 .copyright a:hover {
   text-decoration: none;
-  color: #ff6699;
+  color: #ffa6c9;
 }
 @media screen and (max-width: 768px) {
   .copyright {
