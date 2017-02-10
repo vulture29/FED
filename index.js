@@ -1,5 +1,6 @@
 var cool = require('cool-ascii-faces');
 var express = require('express');
+var ejs = require('ejs');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -8,10 +9,15 @@ app.use(express.static(__dirname + '/public'));
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
+app.engine('html', ejs.__express);
 
 app.get('/', function(request, response) {
   response.render('pages/index');
+});
+
+app.get('/experiment-studio', function(request, response) {
+    response.render('pages/experiment-studio');
 });
 
 app.get('/cool', function(request, response) {
@@ -20,8 +26,8 @@ app.get('/cool', function(request, response) {
 
 app.get('/times', function(request, response) {
     var result = '';
-    var tiems = process.env.TIMES || 5;
-    for(i = 0; i < tiems; i++)
+    var times = process.env.TIMES || 5;
+    for(i = 0; i < times; i++)
         result += i + ' ';
     response.send(result);
 });
